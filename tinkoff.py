@@ -64,3 +64,8 @@ class TinkoffKassa:
 
     def get_state(self, payment_id: str):
         return self._req("GetState", params={"PaymentId": payment_id})
+
+    def charge(self, payment_id: str, rebill_id: str) -> dict:
+        return self._req(
+            "Charge", params={"PaymentId": payment_id, "RebillId": rebill_id}
+        )
